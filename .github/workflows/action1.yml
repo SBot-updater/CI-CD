@@ -1,7 +1,16 @@
-name: test-action
+name: remote ssh command
 on: [push]
 jobs:
-  write-to-console:
+
+  build:
+    name: Build
     runs-on: ubuntu-latest
     steps:
-      - run: echo 'Hello world!'
+    - name: executing remote ssh commands using password
+      uses: appleboy/ssh-action@master
+      with:
+        host: ${{ secrets.HOST }}
+        username: ${{ secrets.USERNAME }}
+        key: ${{ secrets.SERVER_SSH_ID_RSA }}
+        port: 22
+        script: whoami
