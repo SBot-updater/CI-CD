@@ -13,4 +13,4 @@ jobs:
         username: ${{ secrets.USERNAME }}
         key: ${{ secrets.SERVER_SSH_ID_RSA }}
         port: 22
-        script: pwd
+        script: mkdir dir-from-gh-actions
